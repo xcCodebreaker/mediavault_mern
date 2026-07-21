@@ -2,23 +2,28 @@ export async function apiRequest(path, options = {}) {
   const baseUrl = "http://localhost:5000/api";
   const token = localStorage.getItem("mediavault_token");
 
-  let headers = {};
+  let headers = {
+    "Content-Type": "application/json",
+    ...options.headers,
+  };
 
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  headers.Content_Type_ = "application/json";
-
   const response = await fetch(`${baseUrl}${path}`, { ...options, headers });
 
   if (!response.ok) {
+    let errorMessage = "An error occurred";
     try {
       const data = await response.json();
-      throw new Error(data.error);
-    } catch (error) {
-      throw new Error("An error occurred");
+      if (data && data.error) {
+        errorMessage = data.error;
+      }
+    } catch {
+      // Fallback if response is not JSON
     }
+    throw new Error(errorMessage);
   }
 
   return await response.json();
