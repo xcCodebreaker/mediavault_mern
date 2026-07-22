@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect, Children } from 'react'
 
 export const RouterContext = createContext(null)
@@ -64,6 +65,6 @@ export function Routes({ children }) {
   return match
 }
 
-export function Route({ path, element }) {
+export function Route() {
   return null
 }

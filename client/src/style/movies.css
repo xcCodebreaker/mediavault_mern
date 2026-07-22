@@ -1,0 +1,192 @@
+/* ==========================================
+   MediaVault Design System - Movies & Vault Media
+   ========================================== */
+
+/* Movies Container & Grid */
+.movies-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-6);
+  width: 100%;
+}
+
+/* Movie Card System */
+.movie-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: var(--shadow-glow), var(--shadow-md);
+  background: var(--bg-card-hover);
+}
+
+/* Movie Poster Image & Overlay */
+.movie-poster-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: var(--surface-glass);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.05);
+}
+
+.movie-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8, 10, 16, 0.95) 100%);
+  opacity: 0.8;
+  transition: var(--transition-normal);
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+/* Movie Ratings & Badges */
+.movie-badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background: rgba(8, 10, 16, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  z-index: 2;
+}
+
+.movie-rating {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: rgba(8, 10, 16, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-gold);
+  z-index: 2;
+}
+
+.movie-rating-star {
+  width: 12px;
+  height: 12px;
+  fill: var(--accent-gold);
+}
+
+/* Movie Info Content */
+.movie-info {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  z-index: 2;
+}
+
+.movie-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.movie-year {
+  color: var(--text-muted);
+}
+
+.movie-genre {
+  color: var(--accent-purple);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Movie Search & Filter Controls */
+.movie-search-bar {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  margin-bottom: var(--space-6);
+}
+
+.movie-search-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--font-size-md);
+  transition: var(--transition-smooth);
+}
+
+.movie-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.movie-filter-tag {
+  padding: var(--space-2) var(--space-4);
+  background: var(--surface-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.movie-filter-tag:hover,
+.movie-filter-tag.active {
+  color: var(--text-primary);
+  background: var(--primary-gradient);
+  border-color: transparent;
+}
