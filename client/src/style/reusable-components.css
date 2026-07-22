@@ -1,0 +1,129 @@
+/* ==========================================
+   MediaVault Design System - Reusable Component Styles
+   Styles for new reusable components that extend
+   the base design system.
+   ========================================== */
+
+/* --- MoviePoster Fallback --- */
+.movie-poster-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-glass);
+  color: var(--text-subtle);
+}
+
+/* --- RatingStars --- */
+.rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.rating-star {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--border-color);
+  transition: var(--transition-fast);
+}
+
+.rating-star svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.rating-star-filled {
+  color: var(--accent-gold);
+}
+
+.rating-star-interactive {
+  cursor: pointer;
+}
+
+.rating-star-interactive:hover {
+  transform: scale(1.2);
+}
+
+.rating-star-interactive:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+.rating-star:disabled:not(.rating-star-interactive) {
+  cursor: default;
+  opacity: 1;
+}
+
+/* --- ReviewCard --- */
+.review-card {
+  padding: var(--space-6);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  gap: var(--space-4);
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.review-avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: var(--primary-light);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+}
+
+.review-author-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.review-author-name {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.review-date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.review-body {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}

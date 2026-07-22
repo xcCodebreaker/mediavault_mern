@@ -8,3 +8,5 @@
 @import './style/components.css';
 @import './style/forms.css';
 @import './style/movies.css';
+@import './style/reusable-components.css';
+@import './style/search.css';
