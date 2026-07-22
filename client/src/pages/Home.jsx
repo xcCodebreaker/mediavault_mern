@@ -1,5 +1,5 @@
 import { useAuth } from '../context/AuthContext.jsx'
-import { Link } from '../main.jsx'
+import { Link } from '../context/RouterContext.jsx'
 
 export default function Home() {
   const { user } = useAuth()

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate, Link } from '../main.jsx'
+import { useNavigate, Link } from '../context/RouterContext.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 
 export default function Signup() {
