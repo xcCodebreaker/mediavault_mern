@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react'
 import { apiRequest } from '../api/client.js'
 import { useParams, Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext.jsx'
+import RatingStars from '../components/RatingStars.jsx'
 
 const TMDB_IMG_BASE = 'https://image.tmdb.org/t/p/w500'
 
 export default function MovieDetail() {
   const { id } = useParams()
+  const { user } = useAuth()
   const [movie, setMovie] = useState(null)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+
+  const [watchedDate, setWatchedDate] = useState(
+    () => new Date().toISOString().split('T')[0]
+  )
+  const [rating, setRating] = useState(0)
+  const [rewatch, setRewatch] = useState(false)
+  const [note, setNote] = useState('')
 
   useEffect(() => {
     let cancelled = false
@@ -125,6 +135,60 @@ export default function MovieDetail() {
           )}
         </div>
       </div>
+
+      {user && (
+        <section className="card log-movie-section">
+          <h2 className="movie-detail-section-title">Log this movie</h2>
+          <form onSubmit={(e) => e.preventDefault()} className="log-movie-form">
+            <div className="form-group">
+              <label className="form-label" htmlFor="watchedDate">Watched Date</label>
+              <input
+                id="watchedDate"
+                type="date"
+                className="form-input"
+                value={watchedDate}
+                onChange={(e) => setWatchedDate(e.target.value)}
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">Rating</label>
+              <RatingStars
+                rating={rating}
+                onChange={(newRating) => setRating(newRating)}
+                size={24}
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={rewatch}
+                  onChange={(e) => setRewatch(e.target.checked)}
+                />
+                Rewatch
+              </label>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label" htmlFor="note">Note</label>
+              <textarea
+                id="note"
+                className="form-textarea"
+                placeholder="Add your thoughts or review..."
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                rows={4}
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary">
+              Log Movie
+            </button>
+          </form>
+        </section>
+      )}
     </div>
   )
 }
