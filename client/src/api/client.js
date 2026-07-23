@@ -1,5 +1,6 @@
 export async function apiRequest(path, options = {}) {
-  const baseUrl = "http://localhost:5000/api";
+  const baseUrl = "http://localhost:5000";
+  const fullPath = path.startsWith("/api") ? path : `/api${path}`;
   const token = localStorage.getItem("mediavault_token");
 
   let headers = {
@@ -11,7 +12,7 @@ export async function apiRequest(path, options = {}) {
     headers.Authorization = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${baseUrl}${path}`, { ...options, headers });
+  const response = await fetch(`${baseUrl}${fullPath}`, { ...options, headers });
 
   if (!response.ok) {
     let errorMessage = "An error occurred";

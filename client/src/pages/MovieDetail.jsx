@@ -20,6 +20,39 @@ export default function MovieDetail() {
   const [rewatch, setRewatch] = useState(false)
   const [note, setNote] = useState('')
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    if (!movie) return
+
+    setIsSubmitting(true)
+    setSubmitError('')
+    setSubmitSuccess(false)
+
+    try {
+      await apiRequest('/api/diary', {
+        method: 'POST',
+        body: JSON.stringify({
+          tmdbMovieId: movie.id,
+          movieTitle: movie.title,
+          posterPath: movie.poster_path,
+          watchedDate,
+          rating,
+          rewatch,
+          note,
+        }),
+      })
+      setSubmitSuccess(true)
+    } catch (err) {
+      setSubmitError(err.message || 'Failed to log movie. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   useEffect(() => {
     let cancelled = false
 
@@ -139,7 +172,26 @@ export default function MovieDetail() {
       {user && (
         <section className="card log-movie-section">
           <h2 className="movie-detail-section-title">Log this movie</h2>
-          <form onSubmit={(e) => e.preventDefault()} className="log-movie-form">
+
+          {submitSuccess && (
+            <div className="alert alert-success">
+              <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Movie logged to your diary successfully!</span>
+            </div>
+          )}
+
+          {submitError && (
+            <div className="alert alert-error">
+              <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>{submitError}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="log-movie-form">
             <div className="form-group">
               <label className="form-label" htmlFor="watchedDate">Watched Date</label>
               <input
@@ -148,6 +200,7 @@ export default function MovieDetail() {
                 className="form-input"
                 value={watchedDate}
                 onChange={(e) => setWatchedDate(e.target.value)}
+                disabled={isSubmitting}
               />
             </div>
 
@@ -166,6 +219,7 @@ export default function MovieDetail() {
                   type="checkbox"
                   checked={rewatch}
                   onChange={(e) => setRewatch(e.target.checked)}
+                  disabled={isSubmitting}
                 />
                 Rewatch
               </label>
@@ -180,11 +234,19 @@ export default function MovieDetail() {
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 rows={4}
+                disabled={isSubmitting}
               />
             </div>
 
-            <button type="submit" className="btn btn-primary">
-              Log Movie
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <div className="spinner"></div>
+                  <span>Logging Movie...</span>
+                </>
+              ) : (
+                <span>Log Movie</span>
+              )}
             </button>
           </form>
         </section>
