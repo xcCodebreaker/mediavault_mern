@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { apiRequest } from '../api/client.js'
-import { useParams, Link } from '../context/RouterContext.jsx'
+import { useParams, Link } from 'react-router-dom'
 
 const TMDB_IMG_BASE = 'https://image.tmdb.org/t/p/w500'
 
