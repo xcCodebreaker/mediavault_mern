@@ -36,6 +36,18 @@ export default function Diary() {
     }
   }, [])
 
+  async function handleDelete(id) {
+    const confirmed = window.confirm('Are you sure you want to delete this diary entry?')
+    if (!confirmed) return
+
+    try {
+      await apiRequest(`/api/diary/${id}`, { method: 'DELETE' })
+      setEntries((prevEntries) => prevEntries.filter((entry) => entry._id !== id))
+    } catch (err) {
+      alert(err.message || 'Failed to delete entry.')
+    }
+  }
+
   return (
     <div className="diary-page movies-container animate-fade-in-up">
       <h1 className="search-page-title">My Diary</h1>
@@ -70,13 +82,42 @@ export default function Diary() {
             const posterSrc = entry.posterPath ? `https://image.tmdb.org/t/p/w500${entry.posterPath}` : undefined
 
             return (
-              <MovieCard
-                key={entry._id}
-                title={entry.movieTitle}
-                year={year}
-                rating={entry.rating}
-                posterSrc={posterSrc}
-              />
+              <div key={entry._id} className="diary-card-container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <MovieCard
+                  title={entry.movieTitle}
+                  year={year}
+                  rating={entry.rating}
+                  posterSrc={posterSrc}
+                />
+                <button
+                  type="button"
+                  className="btn-delete-entry"
+                  onClick={() => handleDelete(entry._id)}
+                  title="Delete entry"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    width: '100%',
+                    padding: '6px 12px',
+                    fontSize: '0.85rem',
+                    fontWeight: 500,
+                    color: '#f87171',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    border: '1px solid rgba(239, 68, 68, 0.25)',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                  <span>Delete</span>
+                </button>
+              </div>
             )
           })}
         </div>
