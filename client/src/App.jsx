@@ -35,6 +35,7 @@ function App() {
               <Link to="/search" className="nav-link">Search</Link>
               {user ? (
                 <div className="nav-user">
+                  <Link to="/" className="nav-link">My Vault</Link>
                   <Link to="/diary" className="nav-link">My Diary</Link>
                   <span className="user-tag">{user.name}</span>
                   <button onClick={logout} className="btn-nav-logout">
