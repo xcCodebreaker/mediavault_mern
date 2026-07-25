@@ -3,6 +3,7 @@ import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 import Search from './pages/Search.jsx'
 import MovieDetail from './pages/MovieDetail.jsx'
+import Diary from './pages/Diary.jsx'
 import { BrowserRouter, Routes, Route, Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from './context/AuthContext.jsx'
 import './App.css'
@@ -34,7 +35,7 @@ function App() {
               <Link to="/search" className="nav-link">Search</Link>
               {user ? (
                 <div className="nav-user">
-                  <Link to="/" className="nav-link">My Vault</Link>
+                  <Link to="/diary" className="nav-link">My Diary</Link>
                   <span className="user-tag">{user.name}</span>
                   <button onClick={logout} className="btn-nav-logout">
                     Logout
@@ -57,6 +58,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/search" element={<Search />} />
             <Route path="/movie/:id" element={<MovieDetail />} />
+            <Route path="/diary" element={<Diary />} />
           </Routes>
         </main>
 
