@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { apiRequest } from '../api/client.js'
 import { Link } from 'react-router-dom'
+import { MovieCard } from '../components'
 
 const TMDB_IMG_BASE = 'https://image.tmdb.org/t/p/w500'
 
@@ -78,52 +79,26 @@ export default function Search() {
 
       {!isLoading && results.length > 0 && (
         <div className="movies-grid">
-          {results.map((movie) => (
-            <Link
-              key={movie.id}
-              to={`/movie/${movie.id}`}
-              className="movie-card-link"
-            >
-              <div className="movie-card">
-                <div className="movie-poster-wrapper">
-                  {movie.poster_path ? (
-                    <img
-                      className="movie-poster"
-                      src={`${TMDB_IMG_BASE}${movie.poster_path}`}
-                      alt={movie.title}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="movie-poster movie-poster-fallback">
-                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
-                        <line x1="7" y1="2" x2="7" y2="22" />
-                        <line x1="17" y1="2" x2="17" y2="22" />
-                        <line x1="2" y1="12" x2="22" y2="12" />
-                      </svg>
-                    </div>
-                  )}
-                  <div className="movie-overlay"></div>
-                  {movie.vote_average > 0 && (
-                    <div className="movie-rating">
-                      <svg className="movie-rating-star" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                      </svg>
-                      <span>{movie.vote_average.toFixed(1)}</span>
-                    </div>
-                  )}
-                </div>
-                <div className="movie-info">
-                  <h3 className="movie-title">{movie.title}</h3>
-                  <div className="movie-meta">
-                    <span className="movie-year">
-                      {movie.release_date ? movie.release_date.slice(0, 4) : '—'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+          {results.map((movie) => {
+            const year = movie.release_date ? movie.release_date.slice(0, 4) : '—'
+            const posterSrc = movie.poster_path ? `${TMDB_IMG_BASE}${movie.poster_path}` : null
+            const rating = movie.vote_average > 0 ? movie.vote_average.toFixed(1) : null
+
+            return (
+              <Link
+                key={movie.id}
+                to={`/movie/${movie.id}`}
+                className="movie-card-link"
+              >
+                <MovieCard
+                  title={movie.title}
+                  year={year}
+                  posterSrc={posterSrc}
+                  rating={rating}
+                />
+              </Link>
+            )
+          })}
         </div>
       )}
     </div>
