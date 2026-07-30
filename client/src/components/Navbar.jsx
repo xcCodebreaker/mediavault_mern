@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 
-export default function Navbar({ user, onLogout, LinkComponent }) {
-  const LinkToUse = LinkComponent || Link
+export default function Navbar({ user, logout, onLogout, Link: CustomLink, LinkComponent }) {
+  const handleLogout = logout || onLogout
+  const LinkToUse = CustomLink || LinkComponent || Link
 
   return (
     <nav className="navbar animate-fade-in">
@@ -23,12 +24,16 @@ export default function Navbar({ user, onLogout, LinkComponent }) {
         <div className="nav-links">
           <LinkToUse to="/" className="nav-link">Home</LinkToUse>
           {user ? (
-            <div className="nav-user">
-              <span className="user-tag">{user.name}</span>
-              <button onClick={onLogout} className="btn-nav-logout">
-                Logout
-              </button>
-            </div>
+            <>
+              <LinkToUse to="/search" className="nav-link">Search</LinkToUse>
+              <LinkToUse to="/diary" className="nav-link">My Diary</LinkToUse>
+              <div className="nav-user">
+                <span className="user-tag">{user.name}</span>
+                <button onClick={handleLogout} className="btn-nav-logout">
+                  Logout
+                </button>
+              </div>
+            </>
           ) : (
             <>
               <LinkToUse to="/login" className="nav-link">Login</LinkToUse>
