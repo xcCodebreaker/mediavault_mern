@@ -1,8 +1,37 @@
+import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext.jsx'
 import { Link } from 'react-router-dom'
+import { apiRequest } from '../api/client.js'
 
 export default function Home() {
   const { user } = useAuth()
+  const [diaryEntries, setDiaryEntries] = useState(0)
+  const [moviesLogged, setMoviesLogged] = useState(0)
+
+  useEffect(() => {
+    if (!user) return
+
+    let isMounted = true
+
+    async function fetchStats() {
+      try {
+        const data = await apiRequest('/api/diary')
+        if (isMounted && Array.isArray(data)) {
+          setDiaryEntries(data.length)
+          const uniqueMovieIds = new Set(data.map((entry) => entry.tmdbMovieId).filter((id) => id != null))
+          setMoviesLogged(uniqueMovieIds.size)
+        }
+      } catch (err) {
+        console.error('Failed to fetch diary entries for home stats:', err)
+      }
+    }
+
+    fetchStats()
+
+    return () => {
+      isMounted = false
+    }
+  }, [user])
 
   if (user) {
     return (
@@ -27,7 +56,7 @@ export default function Home() {
               </svg>
             </div>
             <div className="stat-info">
-              <span className="stat-value">0</span>
+              <span className="stat-value">{moviesLogged}</span>
               <span className="stat-label">Movies Logged</span>
             </div>
           </div>
@@ -40,7 +69,7 @@ export default function Home() {
               </svg>
             </div>
             <div className="stat-info">
-              <span className="stat-value">0</span>
+              <span className="stat-value">{diaryEntries}</span>
               <span className="stat-label">Diary Entries</span>
             </div>
           </div>
