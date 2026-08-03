@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
+import { Input, Button } from '../components'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -90,72 +91,37 @@ export default function Login() {
         )}
 
         <form onSubmit={handleSubmit} noValidate>
-          <div className="form-group">
-            <label className="form-label" htmlFor="email-input">
-              Email Address
-            </label>
-            <div className="input-wrapper">
-              <input
-                id="email-input"
-                className={`form-input ${validationErrors.email ? 'input-error' : ''}`}
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={handleEmailChange}
-                disabled={isLoading}
-                required
-              />
-            </div>
-            {validationErrors.email && (
-              <span className="field-error-text">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
-                {validationErrors.email}
-              </span>
-            )}
-          </div>
+          <Input
+            id="email-input"
+            label="Email Address"
+            type="email"
+            placeholder="you@example.com"
+            value={email}
+            onChange={handleEmailChange}
+            disabled={isLoading}
+            required
+            error={validationErrors.email}
+          />
 
-          <div className="form-group">
-            <label className="form-label" htmlFor="password-input">
-              Password
-            </label>
-            <div className="input-wrapper">
-              <input
-                id="password-input"
-                className={`form-input ${validationErrors.password ? 'input-error' : ''}`}
-                type="password"
-                placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-                value={password}
-                onChange={handlePasswordChange}
-                disabled={isLoading}
-                required
-              />
-            </div>
-            {validationErrors.password && (
-              <span className="field-error-text">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
-                {validationErrors.password}
-              </span>
-            )}
-          </div>
+          <Input
+            id="password-input"
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            value={password}
+            onChange={handlePasswordChange}
+            disabled={isLoading}
+            required
+            error={validationErrors.password}
+          />
 
-          <button className="btn btn-primary" type="submit" disabled={isLoading}>
-            {isLoading ? (
-              <>
-                <div className="spinner"></div>
-                <span>Securing Connection...</span>
-              </>
-            ) : (
-              <span>Sign In to Vault</span>
-            )}
-          </button>
+          <Button
+            type="submit"
+            isLoading={isLoading}
+            loadingText="Securing Connection..."
+          >
+            Sign In to Vault
+          </Button>
         </form>
       </div>
 
