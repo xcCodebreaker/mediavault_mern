@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { Input, Button } from '../components'
+import { validateEmail, validatePassword } from '../utils/validation.js'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -14,30 +15,15 @@ export default function Login() {
 
   // Simple client-side validation
   function validateForm() {
-    const errors = { email: '', password: '' }
-    let isValid = true
+    const emailError = validateEmail(email)
+    const passwordError = validatePassword(password)
 
-    if (!email.trim()) {
-      errors.email = 'Email is required'
-      isValid = false
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(email)) {
-        errors.email = 'Please enter a valid email address'
-        isValid = false
-      }
-    }
+    setValidationErrors({
+      email: emailError,
+      password: passwordError,
+    })
 
-    if (!password) {
-      errors.password = 'Password is required'
-      isValid = false
-    } else if (password.length < 6) {
-      errors.password = 'Password must be at least 6 characters'
-      isValid = false
-    }
-
-    setValidationErrors(errors)
-    return isValid
+    return !emailError && !passwordError
   }
 
   async function handleSubmit(e) {

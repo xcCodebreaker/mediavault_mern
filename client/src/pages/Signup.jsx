@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { Input, Button } from '../components'
+import { validateEmail, validatePassword } from '../utils/validation.js'
 
 export default function Signup() {
   const [name, setName] = useState('')
@@ -24,22 +25,13 @@ export default function Signup() {
       isValid = false
     }
 
-    if (!email.trim()) {
-      errors.email = 'Email address is required'
+    errors.email = validateEmail(email)
+    if (errors.email) {
       isValid = false
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(email)) {
-        errors.email = 'Please enter a valid email address'
-        isValid = false
-      }
     }
 
-    if (!password) {
-      errors.password = 'Password is required'
-      isValid = false
-    } else if (password.length < 6) {
-      errors.password = 'Password must be at least 6 characters'
+    errors.password = validatePassword(password)
+    if (errors.password) {
       isValid = false
     }
 
