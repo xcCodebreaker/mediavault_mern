@@ -4,6 +4,7 @@ import { MovieCard } from '../components'
 
 export default function Diary() {
   const [entries, setEntries] = useState([])
+  const [selectedEntry, setSelectedEntry] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -88,6 +89,7 @@ export default function Diary() {
                   year={year}
                   rating={entry.rating}
                   posterSrc={posterSrc}
+                  onClick={() => setSelectedEntry(entry)}
                 />
                 <button
                   type="button"

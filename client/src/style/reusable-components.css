@@ -127,3 +127,117 @@
   color: var(--text-secondary);
   line-height: 1.65;
 }
+
+/* --- DiaryEntryCard Detail Box --- */
+.diary-entry-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-main);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.diary-entry-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.diary-entry-close-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-glass);
+}
+
+.diary-entry-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.diary-entry-poster-thumb {
+  width: 56px;
+  height: 84px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+
+.diary-entry-poster-thumb img,
+.diary-entry-poster-thumb .movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.diary-entry-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  padding-right: var(--space-6);
+}
+
+.diary-entry-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.diary-entry-date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.diary-entry-rating {
+  display: flex;
+  align-items: center;
+}
+
+.diary-entry-rewatch-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.diary-entry-note {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.03);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border-left: 2px solid var(--primary);
+}
+
