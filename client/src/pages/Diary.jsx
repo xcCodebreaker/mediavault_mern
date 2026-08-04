@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { apiRequest } from '../api/client.js'
-import { MovieCard } from '../components'
+import { MovieCard, DiaryEntryCard } from '../components'
 
 export default function Diary() {
   const [entries, setEntries] = useState([])
@@ -37,6 +37,21 @@ export default function Diary() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!selectedEntry) return
+
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        setSelectedEntry(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [selectedEntry])
+
   async function handleDelete(id) {
     const confirmed = window.confirm('Are you sure you want to delete this diary entry?')
     if (!confirmed) return
@@ -44,6 +59,9 @@ export default function Diary() {
     try {
       await apiRequest(`/api/diary/${id}`, { method: 'DELETE' })
       setEntries((prevEntries) => prevEntries.filter((entry) => entry._id !== id))
+      if (selectedEntry && selectedEntry._id === id) {
+        setSelectedEntry(null)
+      }
     } catch (err) {
       alert(err.message || 'Failed to delete entry.')
     }
@@ -124,6 +142,24 @@ export default function Diary() {
           })}
         </div>
       )}
+
+      {selectedEntry && (
+        <div
+          className="diary-overlay"
+          onClick={() => setSelectedEntry(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Diary entry overlay"
+        >
+          <div onClick={(e) => e.stopPropagation()}>
+            <DiaryEntryCard
+              entry={selectedEntry}
+              onClose={() => setSelectedEntry(null)}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
+
