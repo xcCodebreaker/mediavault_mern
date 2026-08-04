@@ -10,4 +10,6 @@ export { default as Navbar } from './Navbar.jsx'
 export { default as MovieCard } from './MovieCard.jsx'
 export { default as MoviePoster } from './MoviePoster.jsx'
 export { default as RatingStars } from './RatingStars.jsx'
+export { default as DiaryEntryCard } from './DiaryEntryCard.jsx'
+
 
