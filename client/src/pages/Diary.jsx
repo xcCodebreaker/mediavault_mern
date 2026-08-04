@@ -68,80 +68,82 @@ export default function Diary() {
   }
 
   return (
-    <div className="diary-page movies-container animate-fade-in-up">
-      <h1 className="search-page-title">My Diary</h1>
-      <p className="search-page-subtitle">Your personal timeline of watched movies</p>
+    <>
+      <div className="diary-page movies-container animate-fade-in-up">
+        <h1 className="search-page-title">My Diary</h1>
+        <p className="search-page-subtitle">Your personal timeline of watched movies</p>
 
-      {error && (
-        <div className="alert alert-error">
-          <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
-          <span>{error}</span>
-        </div>
-      )}
+        {error && (
+          <div className="alert alert-error">
+            <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <span>{error}</span>
+          </div>
+        )}
 
-      {isLoading && (
-        <div className="search-loading">
-          <div className="spinner"></div>
-          <span>Loading diary entries...</span>
-        </div>
-      )}
+        {isLoading && (
+          <div className="search-loading">
+            <div className="spinner"></div>
+            <span>Loading diary entries...</span>
+          </div>
+        )}
 
-      {!isLoading && !error && entries.length === 0 && (
-        <div className="search-empty">
-          <p className="search-empty-text">No diary entries yet.</p>
-        </div>
-      )}
+        {!isLoading && !error && entries.length === 0 && (
+          <div className="search-empty">
+            <p className="search-empty-text">No diary entries yet.</p>
+          </div>
+        )}
 
-      {!isLoading && entries.length > 0 && (
-        <div className="movies-grid">
-          {entries.map((entry) => {
-            const year = entry.watchedDate ? new Date(entry.watchedDate).getFullYear() : undefined
-            const posterSrc = entry.posterPath ? `https://image.tmdb.org/t/p/w500${entry.posterPath}` : undefined
+        {!isLoading && entries.length > 0 && (
+          <div className="movies-grid">
+            {entries.map((entry) => {
+              const year = entry.watchedDate ? new Date(entry.watchedDate).getFullYear() : undefined
+              const posterSrc = entry.posterPath ? `https://image.tmdb.org/t/p/w500${entry.posterPath}` : undefined
 
-            return (
-              <div key={entry._id} className="diary-card-container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <MovieCard
-                  title={entry.movieTitle}
-                  year={year}
-                  rating={entry.rating}
-                  posterSrc={posterSrc}
-                  onClick={() => setSelectedEntry(entry)}
-                />
-                <button
-                  type="button"
-                  className="btn-delete-entry"
-                  onClick={() => handleDelete(entry._id)}
-                  title="Delete entry"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '6px',
-                    width: '100%',
-                    padding: '6px 12px',
-                    fontSize: '0.85rem',
-                    fontWeight: 500,
-                    color: '#f87171',
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                    border: '1px solid rgba(239, 68, 68, 0.25)',
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <polyline points="3 6 5 6 21 6"></polyline>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                  </svg>
-                  <span>Delete</span>
-                </button>
-              </div>
-            )
-          })}
-        </div>
-      )}
+              return (
+                <div key={entry._id} className="diary-card-container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <MovieCard
+                    title={entry.movieTitle}
+                    year={year}
+                    rating={entry.rating}
+                    posterSrc={posterSrc}
+                    onClick={() => setSelectedEntry(entry)}
+                  />
+                  <button
+                    type="button"
+                    className="btn-delete-entry"
+                    onClick={() => handleDelete(entry._id)}
+                    title="Delete entry"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '6px',
+                      width: '100%',
+                      padding: '6px 12px',
+                      fontSize: '0.85rem',
+                      fontWeight: 500,
+                      color: '#f87171',
+                      backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid rgba(239, 68, 68, 0.25)',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="3 6 5 6 21 6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    <span>Delete</span>
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        )}
+      </div>
 
       {selectedEntry && (
         <div
@@ -159,7 +161,7 @@ export default function Diary() {
           </div>
         </div>
       )}
-    </div>
+    </>
   )
 }
 
