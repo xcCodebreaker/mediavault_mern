@@ -147,7 +147,7 @@ export default function Diary() {
 
       {selectedEntry && (
         <div
-          className="diary-overlay"
+          className="diary-entry-overlay-backdrop"
           onClick={() => setSelectedEntry(null)}
           role="dialog"
           aria-modal="true"

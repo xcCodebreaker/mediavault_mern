@@ -36,7 +36,7 @@ export default function DiaryEntryCard({ entry, onClose }) {
   const hasNote = typeof note === 'string' && note.trim().length > 0
 
   return (
-    <div className="diary-entry-card">
+    <div className="diary-entry-detail-box">
       {onClose && (
         <button
           type="button"
@@ -71,11 +71,11 @@ export default function DiaryEntryCard({ entry, onClose }) {
       )}
 
       {rewatch && (
-        <span className="diary-entry-rewatch-badge">Rewatch</span>
+        <span className="diary-entry-detail-badge">Rewatch</span>
       )}
 
       {hasNote && (
-        <p className="diary-entry-note">{note}</p>
+        <p className="diary-entry-detail-note">{note}</p>
       )}
     </div>
   )
