@@ -41,6 +41,12 @@ export default function Home() {
           <p className="dashboard-subtitle">Your private vault is secure and ready.</p>
         </header>
 
+        <div className="dashboard-actions">
+          <Link to="/search" className="btn btn-primary">
+            Add New Movie
+          </Link>
+        </div>
+
         <section className="dashboard-grid">
           <div className="stat-card">
             <div className="stat-icon-wrapper">
@@ -87,26 +93,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <div className="card empty-vault-card">
-          <div className="empty-vault-icon-wrapper">
-            <svg className="empty-vault-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
-              <path d="M12 8v8" strokeWidth="2" />
-              <path d="M8 12h8" strokeWidth="2" />
-            </svg>
-          </div>
-          <h3 className="empty-vault-title">Your Cinematic Vault is Empty</h3>
-          <p className="empty-vault-text">
-            Your authentication was successful and your media diary is online. Movie searching, logging, and personal diary reviews will be unlocked in a future update!
-          </p>
-          <button 
-            className="btn btn-primary empty-vault-btn" 
-            onClick={() => alert("Movie database integrations and logging capabilities are coming soon!")}
-          >
-            Explore Features Preview
-          </button>
-        </div>
       </div>
     )
   }

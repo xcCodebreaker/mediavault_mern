@@ -33,13 +33,6 @@ function App() {
         <footer className="app-footer">
           <div className="footer-content">
             <p className="footer-text">&copy; 2026 MediaVault. Keep your cinematic memories secure and private.</p>
-            <div className="footer-links">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="footer-link">GitHub</a>
-              <span className="footer-link">&bull;</span>
-              <a href="#" className="footer-link">Terms of Service</a>
-              <span className="footer-link">&bull;</span>
-              <a href="#" className="footer-link">Privacy Policy</a>
-            </div>
           </div>
         </footer>
       </div>
