@@ -12,7 +12,6 @@ const diaryEntrySchema = new mongoose.Schema(
     posterPath: { type: String },
     watchedDate: { type: Date, required: true },
     rating: { type: Number, min: 0.5, max: 5 },
-    rewatch: { type: Boolean, default: false },
     note: { type: String },
   },
   { timestamps: true }

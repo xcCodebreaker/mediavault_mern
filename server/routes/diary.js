@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/", requireAuth, async (req, res) => {
   try {
-    const { tmdbMovieId, movieTitle, posterPath, watchedDate, rating, rewatch, note } = req.body;
+    const { tmdbMovieId, movieTitle, posterPath, watchedDate, rating, note } = req.body;
 
     if (!tmdbMovieId || !movieTitle || !watchedDate) {
       return res.status(400).json({ error: "tmdbMovieId, movieTitle, and watchedDate are required" });
@@ -19,7 +19,6 @@ router.post("/", requireAuth, async (req, res) => {
       posterPath,
       watchedDate,
       rating,
-      rewatch,
       note,
     });
 
