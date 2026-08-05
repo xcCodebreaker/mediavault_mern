@@ -213,15 +213,15 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
-  padding: var(--space-5);
+  padding: var(--space-8);
   box-shadow: var(--shadow-main);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   width: 100%;
-  max-width: 360px;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
 .diary-entry-close-btn {
@@ -252,8 +252,8 @@
 }
 
 .diary-entry-poster-thumb {
-  width: 56px;
-  height: 84px;
+  width: 84px;
+  height: 126px;
   border-radius: var(--radius-md);
   overflow: hidden;
   flex-shrink: 0;
