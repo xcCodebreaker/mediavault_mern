@@ -17,7 +17,6 @@ export default function MovieDetail() {
     () => new Date().toISOString().split('T')[0]
   )
   const [rating, setRating] = useState(0)
-  const [rewatch, setRewatch] = useState(false)
   const [note, setNote] = useState('')
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -41,7 +40,6 @@ export default function MovieDetail() {
           posterPath: movie.poster_path,
           watchedDate,
           rating,
-          rewatch,
           note,
         }),
       })
@@ -211,18 +209,6 @@ export default function MovieDetail() {
                 onChange={(newRating) => setRating(newRating)}
                 size={24}
               />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
-                <input
-                  type="checkbox"
-                  checked={rewatch}
-                  onChange={(e) => setRewatch(e.target.checked)}
-                  disabled={isSubmitting}
-                />
-                Rewatch
-              </label>
             </div>
 
             <div className="form-group">

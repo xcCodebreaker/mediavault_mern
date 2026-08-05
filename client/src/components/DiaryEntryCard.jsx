@@ -5,7 +5,7 @@ import RatingStars from './RatingStars.jsx'
  * DiaryEntryCard - Small, self-contained read-only detail box for a diary entry.
  *
  * Props:
- *  - entry: full diary entry object ({ movieTitle, posterPath, watchedDate, rating, rewatch, note, ... })
+ *  - entry: full diary entry object ({ movieTitle, posterPath, watchedDate, rating, note, ... })
  *  - onClose: callback function invoked when close button is clicked
  */
 export default function DiaryEntryCard({ entry, onClose }) {
@@ -16,7 +16,6 @@ export default function DiaryEntryCard({ entry, onClose }) {
     posterPath,
     watchedDate,
     rating,
-    rewatch,
     note,
   } = entry
 
@@ -68,10 +67,6 @@ export default function DiaryEntryCard({ entry, onClose }) {
         <div className="diary-entry-rating">
           <RatingStars rating={rating} size={16} />
         </div>
-      )}
-
-      {rewatch && (
-        <span className="diary-entry-detail-badge">Rewatch</span>
       )}
 
       {hasNote && (
