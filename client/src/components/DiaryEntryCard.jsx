@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import MoviePoster from './MoviePoster.jsx'
 import RatingStars from './RatingStars.jsx'
 
@@ -70,7 +71,10 @@ export default function DiaryEntryCard({ entry, onClose }) {
       )}
 
       {hasNote && (
-        <p className="diary-entry-detail-note">{note}</p>
+        <>
+          <p className="diary-entry-detail-note">{note}</p>
+          <Link to="/reviews" className="btn btn-secondary">View All Reviews</Link>
+        </>
       )}
     </div>
   )

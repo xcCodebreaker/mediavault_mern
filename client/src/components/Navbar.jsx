@@ -27,6 +27,7 @@ export default function Navbar({ user, logout, onLogout, Link: CustomLink, LinkC
             <>
               <LinkToUse to="/search" className="nav-link">Search</LinkToUse>
               <LinkToUse to="/diary" className="nav-link">My Diary</LinkToUse>
+              <LinkToUse to="/reviews" className="nav-link">Reviews</LinkToUse>
               <div className="nav-user">
                 <span className="user-tag">{user.name}</span>
                 <button onClick={handleLogout} className="btn-nav-logout">

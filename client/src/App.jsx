@@ -4,6 +4,7 @@ import Signup from './pages/Signup.jsx'
 import Search from './pages/Search.jsx'
 import MovieDetail from './pages/MovieDetail.jsx'
 import Diary from './pages/Diary.jsx'
+import Reviews from './pages/Reviews.jsx'
 import NotFound from './pages/NotFound.jsx'
 import { BrowserRouter, Routes, Route, Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from './context/AuthContext.jsx'
@@ -26,6 +27,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/movie/:id" element={<MovieDetail />} />
             <Route path="/diary" element={<Diary />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
