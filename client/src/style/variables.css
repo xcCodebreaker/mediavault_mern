@@ -4,20 +4,20 @@
 
 :root {
   /* --- Background Colors --- */
-  --bg-dark: #080a10;
-  --bg-darker: #05060a;
-  --bg-card: rgba(15, 20, 35, 0.65);
-  --bg-card-hover: rgba(20, 26, 46, 0.85);
-  --bg-input: rgba(10, 12, 22, 0.8);
-  --bg-input-focus: rgba(12, 15, 28, 0.95);
-  --bg-overlay: rgba(8, 10, 16, 0.75);
-  --bg-glass: rgba(15, 20, 35, 0.4);
+  --bg-dark: #011627;
+  --bg-darker: #000d15;
+  --bg-card: rgba(17, 38, 58, 0.65);
+  --bg-card-hover: rgba(23, 48, 70, 0.85);
+  --bg-input: rgba(9, 28, 46, 0.8);
+  --bg-input-focus: rgba(10, 32, 50, 0.95);
+  --bg-overlay: rgba(1, 22, 39, 0.75);
+  --bg-glass: rgba(17, 38, 58, 0.4);
 
   /* --- Surface Colors --- */
-  --surface-main: #080a10;
-  --surface-card: rgba(15, 20, 35, 0.65);
-  --surface-card-hover: rgba(20, 26, 46, 0.85);
-  --surface-elevated: rgba(25, 32, 56, 0.7);
+  --surface-main: #011627;
+  --surface-card: rgba(17, 38, 58, 0.65);
+  --surface-card-hover: rgba(23, 48, 70, 0.85);
+  --surface-elevated: rgba(30, 56, 80, 0.7);
   --surface-glass: rgba(255, 255, 255, 0.04);
   --surface-glass-hover: rgba(255, 255, 255, 0.08);
 
@@ -34,16 +34,16 @@
   --accent-gold: #fbbf24;
 
   /* --- Text Colors --- */
-  --text-primary: #f3f4f6;
-  --text-secondary: #d1d5db;
-  --text-muted: #9ca3af;
-  --text-subtle: rgba(255, 255, 255, 0.35);
-  --text-dark: #111827;
+  --text-primary: #fdfffc;
+  --text-secondary: #d6dcdb;
+  --text-muted: #8fa3a0;
+  --text-subtle: rgba(253, 255, 252, 0.35);
+  --text-dark: #011627;
   --text-error: #fca5a5;
 
   /* --- Border & Status Colors --- */
-  --border-color: rgba(255, 255, 255, 0.07);
-  --border-color-hover: rgba(255, 255, 255, 0.12);
+  --border-color: rgba(253, 255, 252, 0.08);
+  --border-color-hover: rgba(253, 255, 252, 0.14);
   --border-color-focus: rgba(139, 92, 246, 0.5);
 
   --error: #ef4444;
