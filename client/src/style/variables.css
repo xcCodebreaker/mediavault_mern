@@ -22,16 +22,16 @@
   --surface-glass-hover: rgba(255, 255, 255, 0.08);
 
   /* --- Accent Colors & Gradients --- */
-  --primary: #8b5cf6;
-  --primary-hover: #7c3aed;
-  --primary-light: #a78bfa;
-  --primary-glow: rgba(139, 92, 246, 0.4);
-  --primary-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
-  --primary-gradient-hover: linear-gradient(135deg, #a78bfa 0%, #f5d0fe 100%);
-  --secondary-gradient: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-  --accent-pink: #d946ef;
-  --accent-purple: #c084fc;
-  --accent-gold: #fbbf24;
+  --primary: #2ec4b6;
+  --primary-hover: #25a396;
+  --primary-light: #5cd6ca;
+  --primary-glow: rgba(46, 196, 182, 0.4);
+  --primary-gradient: linear-gradient(135deg, #2ec4b6 0%, #ff9f1c 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #5cd6ca 0%, #ffb84d 100%);
+  --secondary-gradient: linear-gradient(135deg, #142a3d 0%, #011627 100%);
+  --accent-pink: #e71d36;
+  --accent-purple: #5cd6ca;
+  --accent-gold: #ff9f1c;
 
   /* --- Text Colors --- */
   --text-primary: #fdfffc;
@@ -39,24 +39,24 @@
   --text-muted: #8fa3a0;
   --text-subtle: rgba(253, 255, 252, 0.35);
   --text-dark: #011627;
-  --text-error: #fca5a5;
+  --text-error: #ff8a99;
 
   /* --- Border & Status Colors --- */
   --border-color: rgba(253, 255, 252, 0.08);
   --border-color-hover: rgba(253, 255, 252, 0.14);
-  --border-color-focus: rgba(139, 92, 246, 0.5);
+  --border-color-focus: rgba(46, 196, 182, 0.5);
 
-  --error: #ef4444;
-  --error-bg: rgba(239, 68, 68, 0.08);
-  --error-border: rgba(239, 68, 68, 0.25);
+  --error: #e71d36;
+  --error-bg: rgba(231, 29, 54, 0.08);
+  --error-border: rgba(231, 29, 54, 0.25);
 
   --success: #10b981;
   --success-bg: rgba(16, 185, 129, 0.08);
   --success-border: rgba(16, 185, 129, 0.25);
 
-  --warning: #f59e0b;
-  --warning-bg: rgba(245, 158, 11, 0.08);
-  --warning-border: rgba(245, 158, 11, 0.25);
+  --warning: #ff9f1c;
+  --warning-bg: rgba(255, 159, 28, 0.08);
+  --warning-border: rgba(255, 159, 28, 0.25);
 
   /* --- Spacing Scale --- */
   --space-1: 4px;
