@@ -15,7 +15,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px var(--space-6) var(--space-10); /* offset for fixed navbar */
+  padding: 80px var(--space-6) 140px; /* offset for fixed navbar */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,12 +127,17 @@
 
 /* Footer styling */
 .app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   flex-shrink: 0;
   width: 100%;
   border-top: 1px solid var(--border-color);
   padding: var(--space-6) var(--space-4);
   text-align: center;
-  background: rgba(8, 10, 16, 0.5);
+  background: var(--bg-dark);
 }
 
 .footer-content {
