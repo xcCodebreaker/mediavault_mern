@@ -68,12 +68,6 @@ export default function Home() {
           </div>
 
           <div className="home-sidebar">
-            <div className="dashboard-actions">
-              <Link to="/search" className="btn btn-primary">
-                Add New Movie
-              </Link>
-            </div>
-
             <section className="dashboard-grid">
               <div className="stat-card">
                 <div className="stat-icon-wrapper">
@@ -120,6 +114,12 @@ export default function Home() {
                 </div>
               </div>
             </section>
+
+            <div className="dashboard-actions">
+              <Link to="/search" className="btn btn-primary dashboard-add-btn">
+                Add New Movie
+              </Link>
+            </div>
           </div>
         </div>
       </div>

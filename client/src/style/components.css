@@ -67,7 +67,7 @@
 .stat-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: var(--space-5);
+  padding: var(--space-4);
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -75,8 +75,8 @@
 }
 
 .stat-icon-wrapper {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-lg);
   background: var(--surface-glass);
   border: 1px solid var(--border-color);
@@ -87,8 +87,8 @@
 }
 
 .stat-icon {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   stroke: var(--text-muted);
   stroke-width: 2;
   fill: none;
@@ -101,7 +101,7 @@
 }
 
 .stat-value {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   line-height: 1;
