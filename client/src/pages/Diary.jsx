@@ -98,14 +98,12 @@ export default function Diary() {
         {!isLoading && entries.length > 0 && (
           <div className="movies-grid">
             {entries.map((entry) => {
-              const year = entry.watchedDate ? new Date(entry.watchedDate).getFullYear() : undefined
               const posterSrc = entry.posterPath ? `https://image.tmdb.org/t/p/w500${entry.posterPath}` : undefined
 
               return (
                 <div key={entry._id} className="diary-card-container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                   <MovieCard
                     title={entry.movieTitle}
-                    year={year}
                     rating={entry.rating}
                     posterSrc={posterSrc}
                     onClick={() => setSelectedEntry(entry)}
