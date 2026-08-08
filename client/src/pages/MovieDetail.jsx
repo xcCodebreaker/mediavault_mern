@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { apiRequest } from '../api/client.js'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import RatingStars from '../components/RatingStars.jsx'
 
@@ -8,6 +8,7 @@ const TMDB_IMG_BASE = 'https://image.tmdb.org/t/p/w500'
 
 export default function MovieDetail() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const { user } = useAuth()
   const [movie, setMovie] = useState(null)
   const [error, setError] = useState('')
@@ -21,7 +22,6 @@ export default function MovieDetail() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
-  const [submitSuccess, setSubmitSuccess] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -29,7 +29,6 @@ export default function MovieDetail() {
 
     setIsSubmitting(true)
     setSubmitError('')
-    setSubmitSuccess(false)
 
     try {
       await apiRequest('/api/diary', {
@@ -43,7 +42,7 @@ export default function MovieDetail() {
           note,
         }),
       })
-      setSubmitSuccess(true)
+      navigate('/diary')
     } catch (err) {
       setSubmitError(err.message || 'Failed to log movie. Please try again.')
     } finally {
@@ -170,15 +169,6 @@ export default function MovieDetail() {
       {user && (
         <section className="card log-movie-section">
           <h2 className="movie-detail-section-title">Log this movie</h2>
-
-          {submitSuccess && (
-            <div className="alert alert-success">
-              <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span>Movie logged to your diary successfully!</span>
-            </div>
-          )}
 
           {submitError && (
             <div className="alert alert-error">
