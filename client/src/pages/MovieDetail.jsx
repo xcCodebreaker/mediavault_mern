@@ -83,9 +83,7 @@ export default function MovieDetail() {
     return (
       <div className="movie-detail-page">
         <div className="alert alert-error">
-          <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
+          <span className="alert-symbol">!</span>
           <span>{error}</span>
         </div>
         <Link to="/search" className="btn btn-secondary movie-detail-back-btn">Back to Search</Link>
@@ -113,12 +111,7 @@ export default function MovieDetail() {
             />
           ) : (
             <div className="movie-detail-poster movie-detail-poster-fallback">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
-                <line x1="7" y1="2" x2="7" y2="22" />
-                <line x1="17" y1="2" x2="17" y2="22" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-              </svg>
+              <span>No Poster</span>
             </div>
           )}
         </div>
@@ -162,9 +155,7 @@ export default function MovieDetail() {
 
           {submitError && (
             <div className="alert alert-error">
-              <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
+              <span className="alert-symbol">!</span>
               <span>{submitError}</span>
             </div>
           )}

@@ -110,9 +110,7 @@ export default function Signup() {
       <div className="card">
         {error && (
           <div className="alert alert-error">
-            <svg className="alert-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
+            <span className="alert-symbol">!</span>
             <span>{error}</span>
           </div>
         )}
@@ -134,11 +132,7 @@ export default function Signup() {
             />
             {validationErrors.name && (
               <span className="field-error-text">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
+                <span className="alert-symbol">!</span>
                 {validationErrors.name}
               </span>
             )}
@@ -160,11 +154,7 @@ export default function Signup() {
             />
             {validationErrors.email && (
               <span className="field-error-text">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
+                <span className="alert-symbol">!</span>
                 {validationErrors.email}
               </span>
             )}
@@ -186,11 +176,7 @@ export default function Signup() {
             />
             {validationErrors.password && (
               <span className="field-error-text">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
+                <span className="alert-symbol">!</span>
                 {validationErrors.password}
               </span>
             )}
@@ -212,11 +198,7 @@ export default function Signup() {
             />
             {validationErrors.confirmPassword && (
               <span className="field-error-text">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
+                <span className="alert-symbol">!</span>
                 {validationErrors.confirmPassword}
               </span>
             )}
