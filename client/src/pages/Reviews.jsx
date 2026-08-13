@@ -9,32 +9,22 @@ export default function Reviews() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    let isMounted = true
-
     async function fetchReviews() {
       setIsLoading(true)
       setError('')
       try {
         const data = await apiRequest('/api/diary')
-        if (isMounted && Array.isArray(data)) {
+        if (Array.isArray(data)) {
           setEntries(data)
         }
       } catch (err) {
-        if (isMounted) {
-          setError(err.message || 'Failed to load diary entries.')
-        }
+        setError(err.message || 'Failed to load diary entries.')
       } finally {
-        if (isMounted) {
-          setIsLoading(false)
-        }
+        setIsLoading(false)
       }
     }
 
     fetchReviews()
-
-    return () => {
-      isMounted = false
-    }
   }, [])
 
   // Filter entries to only those with a non-empty written review

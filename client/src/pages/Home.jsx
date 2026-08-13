@@ -13,12 +13,10 @@ export default function Home() {
   useEffect(() => {
     if (!user) return
 
-    let isMounted = true
-
     async function fetchStats() {
       try {
         const data = await apiRequest('/api/diary')
-        if (isMounted && Array.isArray(data)) {
+        if (Array.isArray(data)) {
           setEntries(data)
           setDiaryEntries(data.length)
           const uniqueMovieIds = new Set(data.map((entry) => entry.tmdbMovieId).filter((id) => id != null))
@@ -30,10 +28,6 @@ export default function Home() {
     }
 
     fetchStats()
-
-    return () => {
-      isMounted = false
-    }
   }, [user])
 
   const recentEntries = [...entries].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5)

@@ -51,33 +51,23 @@ export default function MovieDetail() {
   }
 
   useEffect(() => {
-    let cancelled = false
-
     async function fetchMovie() {
       setIsLoading(true)
       setError('')
 
       try {
         const data = await apiRequest(`/tmdb/movie/${id}`)
-        if (!cancelled) {
-          setMovie(data)
-        }
+        setMovie(data)
       } catch (err) {
-        if (!cancelled) {
-          setError(err.message || 'Failed to load movie details.')
-        }
+        setError(err.message || 'Failed to load movie details.')
       } finally {
-        if (!cancelled) {
-          setIsLoading(false)
-        }
+        setIsLoading(false)
       }
     }
 
     if (id) {
       fetchMovie()
     }
-
-    return () => { cancelled = true }
   }, [id])
 
   if (isLoading) {

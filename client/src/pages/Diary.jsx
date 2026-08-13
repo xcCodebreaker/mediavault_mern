@@ -9,32 +9,20 @@ export default function Diary() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    let isMounted = true
-
     async function fetchDiary() {
       setIsLoading(true)
       setError('')
       try {
         const data = await apiRequest('/api/diary')
-        if (isMounted) {
-          setEntries(data)
-        }
+        setEntries(data)
       } catch (err) {
-        if (isMounted) {
-          setError(err.message || 'Failed to load diary entries.')
-        }
+        setError(err.message || 'Failed to load diary entries.')
       } finally {
-        if (isMounted) {
-          setIsLoading(false)
-        }
+        setIsLoading(false)
       }
     }
 
     fetchDiary()
-
-    return () => {
-      isMounted = false
-    }
   }, [])
 
   useEffect(() => {
