@@ -31,7 +31,7 @@ export default function Reviews() {
   const reviews = entries.filter((entry) => typeof entry.note === 'string' && entry.note.trim().length > 0)
 
   return (
-    <div className="reviews-page movies-container animate-fade-in-up">
+    <div className="reviews-page movies-container">
       <h1 className="search-page-title">Reviews</h1>
       <p className="search-page-subtitle">Your personal collection of written movie reviews</p>
 

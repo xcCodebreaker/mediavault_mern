@@ -34,7 +34,7 @@ export default function Home() {
 
   if (user) {
     return (
-      <div className="dashboard-container animate-fade-in-up">
+      <div className="dashboard-container">
         <div className="home-layout">
           <div className="home-main">
             <header className="dashboard-header">
@@ -97,7 +97,7 @@ export default function Home() {
   }
 
   return (
-    <div className="hero-container animate-fade-in-up">
+    <div className="hero-container">
       <span className="hero-badge">Welcome to MediaVault</span>
       <h1 className="hero-title">Your Private Cinematic Sanctuary</h1>
       <p className="hero-subtitle">

@@ -59,7 +59,7 @@ export default function Login() {
   }
 
   return (
-    <div className="auth-wrapper animate-fade-in-up">
+    <div className="auth-wrapper">
       <div className="auth-header">
         <h2 className="auth-title">Welcome Back</h2>
         <p className="auth-subtitle">Unlock your private media vault</p>

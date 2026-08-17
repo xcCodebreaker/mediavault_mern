@@ -57,7 +57,7 @@ export default function Diary() {
 
   return (
     <>
-      <div className="diary-page movies-container animate-fade-in-up">
+      <div className="diary-page movies-container">
         <h1 className="search-page-title">My Diary</h1>
         <p className="search-page-subtitle">Your personal timeline of watched movies</p>
 

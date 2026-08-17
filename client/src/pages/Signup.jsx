@@ -101,7 +101,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="auth-wrapper animate-fade-in-up">
+    <div className="auth-wrapper">
       <div className="auth-header">
         <h2 className="auth-title">Create Account</h2>
         <p className="auth-subtitle">Initialize your private secure space</p>

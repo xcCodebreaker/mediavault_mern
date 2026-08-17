@@ -33,7 +33,6 @@
 }
 
 .movie-card:hover {
-  transform: translateY(-6px) scale(1.02);
   border-color: rgba(139, 92, 246, 0.4);
   box-shadow: var(--shadow-glow), var(--shadow-md);
   background: var(--bg-card-hover);
@@ -53,10 +52,6 @@
   height: 100%;
   object-fit: cover;
   transition: var(--transition-smooth);
-}
-
-.movie-card:hover .movie-poster {
-  transform: scale(1.05);
 }
 
 .movie-overlay {

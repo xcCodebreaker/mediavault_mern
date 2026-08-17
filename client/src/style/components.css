@@ -28,7 +28,6 @@
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
   background: rgba(20, 26, 46, 0.6);
   border-color: rgba(139, 92, 246, 0.3);
 }
@@ -158,13 +157,8 @@
 }
 
 .btn-primary:hover:not(:disabled) {
-  transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5), var(--shadow-glow);
   opacity: 0.95;
-}
-
-.btn-primary:active:not(:disabled) {
-  transform: translateY(1px);
 }
 
 .btn-secondary {
@@ -221,7 +215,6 @@
 }
 
 .btn-nav-signup:hover {
-  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 

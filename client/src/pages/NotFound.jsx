@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function NotFound() {
   return (
-    <div className="auth-wrapper animate-fade-in-up">
+    <div className="auth-wrapper">
       <div className="auth-header">
         <h1 className="auth-title" style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>404</h1>
         <h2 className="auth-subtitle" style={{ fontSize: '1.25rem' }}>Page Not Found</h2>

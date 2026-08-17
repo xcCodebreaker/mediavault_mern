@@ -2,7 +2,7 @@ import { Link as RouterLink } from 'react-router-dom'
 
 export default function Navbar({ user, logout, Link = RouterLink }) {
   return (
-    <nav className="navbar animate-fade-in">
+    <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="logo-link">
           <svg className="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
