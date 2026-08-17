@@ -10,8 +10,6 @@
   padding: var(--space-8);
   width: 100%;
   box-shadow: var(--shadow-main);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   transition: var(--transition-smooth);
 }
 

@@ -72,7 +72,6 @@
   top: var(--space-3);
   left: var(--space-3);
   background: rgba(8, 10, 16, 0.8);
-  backdrop-filter: blur(8px);
   border: 1px solid var(--border-color);
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
@@ -90,7 +89,6 @@
   align-items: center;
   gap: var(--space-1);
   background: rgba(8, 10, 16, 0.8);
-  backdrop-filter: blur(8px);
   border: 1px solid rgba(251, 191, 36, 0.3);
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-full);
@@ -194,8 +192,6 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,13 +201,11 @@
 
 .diary-entry-detail-box {
   position: relative;
-  background: var(--bg-card);
+  background: rgba(17, 38, 58, 0.97);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   box-shadow: var(--shadow-main);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   width: 100%;
   max-width: 540px;
   display: flex;
