@@ -3,10 +3,4 @@
    ========================================== */
 
 @import './style/variables.css';
-@import './style/theme.css';
-@import './style/layout.css';
-@import './style/components.css';
-@import './style/forms.css';
-@import './style/movies.css';
-@import './style/reusable-components.css';
-@import './style/search.css';
+@import './style/main.css';
