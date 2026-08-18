@@ -20,7 +20,7 @@ export default function MoviePoster({
 
   if (!src || hasError) {
     return (
-      <div className={`movie-poster movie-poster-fallback ${className}`.trim()}>
+      <div className={className ? `movie-poster movie-poster-fallback ${className}` : 'movie-poster movie-poster-fallback'}>
         <span>No Poster</span>
       </div>
     )
@@ -28,7 +28,7 @@ export default function MoviePoster({
 
   return (
     <img
-      className={`movie-poster ${className}`.trim()}
+      className={className ? `movie-poster ${className}` : 'movie-poster'}
       src={src}
       alt={alt}
       loading="lazy"

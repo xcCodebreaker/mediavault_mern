@@ -122,7 +122,7 @@ export default function Signup() {
             </label>
             <input
               id="name-input"
-              className={`form-input ${validationErrors.name ? 'input-error' : ''}`.trim()}
+              className={validationErrors.name ? 'form-input input-error' : 'form-input'}
               type="text"
               placeholder="John Doe"
               value={name}
@@ -144,7 +144,7 @@ export default function Signup() {
             </label>
             <input
               id="email-input"
-              className={`form-input ${validationErrors.email ? 'input-error' : ''}`.trim()}
+              className={validationErrors.email ? 'form-input input-error' : 'form-input'}
               type="email"
               placeholder="you@example.com"
               value={email}
@@ -166,7 +166,7 @@ export default function Signup() {
             </label>
             <input
               id="password-input"
-              className={`form-input ${validationErrors.password ? 'input-error' : ''}`.trim()}
+              className={validationErrors.password ? 'form-input input-error' : 'form-input'}
               type="password"
               placeholder="At least 6 characters"
               value={password}
@@ -188,7 +188,7 @@ export default function Signup() {
             </label>
             <input
               id="confirm-password-input"
-              className={`form-input ${validationErrors.confirmPassword ? 'input-error' : ''}`.trim()}
+              className={validationErrors.confirmPassword ? 'form-input input-error' : 'form-input'}
               type="password"
               placeholder="Re-enter your password"
               value={confirmPassword}

@@ -80,7 +80,7 @@ export default function Login() {
             </label>
             <input
               id="email-input"
-              className={`form-input ${validationErrors.email ? 'input-error' : ''}`.trim()}
+              className={validationErrors.email ? 'form-input input-error' : 'form-input'}
               type="email"
               placeholder="you@example.com"
               value={email}
@@ -102,7 +102,7 @@ export default function Login() {
             </label>
             <input
               id="password-input"
-              className={`form-input ${validationErrors.password ? 'input-error' : ''}`.trim()}
+              className={validationErrors.password ? 'form-input input-error' : 'form-input'}
               type="password"
               placeholder="••••••••"
               value={password}

@@ -27,7 +27,7 @@ export default function RatingStars({
 
   return (
     <div
-      className={`rating-stars ${className}`.trim()}
+      className={className ? `rating-stars ${className}` : 'rating-stars'}
       role={isInteractive ? 'radiogroup' : 'img'}
       aria-label={isInteractive ? 'Rating selection' : `Rating: ${rating} out of ${maxStars} stars`}
     >
@@ -35,11 +35,20 @@ export default function RatingStars({
         const starValue = i + 1
         const isFilled = starValue <= displayRating
 
+        let starClassName = 'rating-star'
+        if (isFilled && isInteractive) {
+          starClassName = 'rating-star rating-star-filled rating-star-interactive'
+        } else if (isFilled) {
+          starClassName = 'rating-star rating-star-filled'
+        } else if (isInteractive) {
+          starClassName = 'rating-star rating-star-interactive'
+        }
+
         return (
           <button
             key={starValue}
             type="button"
-            className={`rating-star ${isFilled ? 'rating-star-filled' : ''} ${isInteractive ? 'rating-star-interactive' : ''}`.trim()}
+            className={starClassName}
             style={{ width: size, height: size }}
             onClick={isInteractive ? () => onChange(starValue) : undefined}
             onMouseEnter={isInteractive ? () => setHoverRating(starValue) : undefined}

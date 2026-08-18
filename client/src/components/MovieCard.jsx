@@ -32,7 +32,7 @@ export default function MovieCard({
 }) {
   return (
     <div
-      className={`movie-card ${className}`.trim()}
+      className={className ? `movie-card ${className}` : 'movie-card'}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
