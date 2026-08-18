@@ -247,20 +247,7 @@ a:hover {
   color: var(--text-muted);
 }
 
-.footer-links {
-  display: flex;
-  gap: 16px;
-}
 
-.footer-link {
-  font-size: var(--font-size-sm);
-  color: var(--text-subtle);
-  transition: var(--transition-fast);
-}
-
-.footer-link:hover {
-  color: var(--primary);
-}
 
 /* Landing Hero Section */
 .hero-container {
@@ -298,13 +285,7 @@ a:hover {
   margin-bottom: 64px;
 }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  width: 100%;
-  text-align: left;
-}
+
 
 /* Dashboard Section */
 .dashboard-container {
@@ -400,9 +381,7 @@ a:hover {
   .hero-subtitle {
     font-size: 17px;
   }
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
+
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
@@ -554,13 +533,7 @@ a:hover {
   font-weight: var(--font-weight-medium);
 }
 
-/* Movie Search & Filter Controls */
-.movie-search-bar {
-  display: flex;
-  gap: 12px;
-  width: 100%;
-  margin-bottom: 24px;
-}
+
 
 .movie-search-input {
   flex: 1;
@@ -580,23 +553,7 @@ a:hover {
   box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
 }
 
-.movie-filter-tag {
-  padding: 8px 16px;
-  background: var(--surface-glass);
-  border: 1px solid var(--border-color);
-  border-radius: 9999px;
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
 
-.movie-filter-tag:hover,
-.movie-filter-tag.active {
-  color: var(--text-primary);
-  background: var(--primary-gradient);
-  border-color: transparent;
-}
 
 /* Diary Entry Detail Overlay System */
 .diary-entry-overlay-backdrop {
@@ -710,19 +667,7 @@ a:hover {
   border-left: 2px solid var(--primary);
 }
 
-.diary-entry-detail-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  color: var(--accent-purple);
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.3);
-  padding: 2px 8px;
-  border-radius: 9999px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
+
 
 /* Reviews Page List & Row Styling */
 .review-list {
@@ -884,11 +829,7 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+
 
 .form-input {
   width: 100%;
@@ -943,23 +884,7 @@ a:hover {
   box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
 }
 
-.form-select {
-  width: 100%;
-  padding: 12px 16px;
-  background: var(--bg-input);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: var(--font-size-md);
-  transition: var(--transition-smooth);
-}
 
-.input-hint {
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-  margin-top: 4px;
-}
 
 /* Alert Styling */
 .alert {
@@ -979,17 +904,7 @@ a:hover {
   color: var(--text-error);
 }
 
-.alert-success {
-  background: var(--success-bg);
-  border: 1px solid var(--success-border);
-  color: var(--success);
-}
 
-.alert-warning {
-  background: var(--warning-bg);
-  border: 1px solid var(--warning-border);
-  color: var(--warning);
-}
 
 .alert-symbol {
   font-weight: bold;
@@ -1021,29 +936,7 @@ a:hover {
   border-color: var(--border-color-hover);
 }
 
-.feature-card {
-  background: rgba(15, 20, 35, 0.4);
-  border: 1px solid var(--border-color);
-  padding: 24px;
-  border-radius: 12px;
-  transition: var(--transition-smooth);
-}
 
-.feature-card:hover {
-  background: rgba(20, 26, 46, 0.6);
-  border-color: rgba(139, 92, 246, 0.3);
-}
-
-.feature-title {
-  font-size: var(--font-size-xl);
-  margin-bottom: 8px;
-}
-
-.feature-description {
-  font-size: var(--font-size-base);
-  color: var(--text-muted);
-  line-height: 1.5;
-}
 
 .stat-card {
   background: var(--bg-card);
@@ -1074,53 +967,7 @@ a:hover {
   color: var(--text-muted);
 }
 
-/* Empty Vault Card */
-.empty-vault-card {
-  text-align: center;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
-.empty-vault-icon-wrapper {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: rgba(139, 92, 246, 0.05);
-  border: 1px solid rgba(139, 92, 246, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  color: var(--primary);
-}
-
-.empty-vault-icon {
-  width: 36px;
-  height: 36px;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  fill: none;
-}
-
-.empty-vault-title {
-  font-size: var(--font-size-3xl);
-  margin-bottom: 10px;
-  color: var(--text-primary);
-}
-
-.empty-vault-text {
-  font-size: var(--font-size-md);
-  color: var(--text-muted);
-  max-width: 440px;
-  margin-bottom: 24px;
-}
-
-.empty-vault-btn {
-  max-width: 220px;
-}
 
 /* Hero Badge */
 .hero-badge {
@@ -1174,16 +1021,7 @@ a:hover {
   border-color: var(--border-color-hover);
 }
 
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--border-color-hover);
-  color: var(--text-primary);
-}
 
-.btn-outline:hover:not(:disabled) {
-  background: var(--surface-glass);
-  border-color: var(--primary);
-}
 
 .btn:disabled {
   opacity: 0.6;
@@ -1284,72 +1122,7 @@ a:hover {
   opacity: 1;
 }
 
-/* --- ReviewCard --- */
-.review-card {
-  padding: 24px;
-}
 
-.review-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  gap: 16px;
-}
-
-.review-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
-.review-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 1px solid var(--border-color);
-}
-
-.review-avatar-fallback {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.25);
-  color: var(--primary-light);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: 0.02em;
-}
-
-.review-author-info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.review-author-name {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.review-date {
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-}
-
-.review-body {
-  font-size: var(--font-size-base);
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
 
 /* ===== Search ===== */
 /* --- Search Page --- */
