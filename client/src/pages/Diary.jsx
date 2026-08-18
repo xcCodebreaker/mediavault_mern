@@ -87,7 +87,7 @@ export default function Diary() {
               const posterSrc = entry.posterPath ? `https://image.tmdb.org/t/p/w500${entry.posterPath}` : undefined
 
               return (
-                <div key={entry._id} className="diary-card-container" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div key={entry._id} className="diary-card-container">
                   <MovieCard
                     title={entry.movieTitle}
                     rating={entry.rating}

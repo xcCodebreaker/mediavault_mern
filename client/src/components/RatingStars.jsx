@@ -25,14 +25,18 @@ export default function RatingStars({
   const isInteractive = typeof onChange === 'function'
   const displayRating = hoverRating || rating
 
+  const starNumbers = []
+  for (let i = 1; i <= maxStars; i++) {
+    starNumbers.push(i)
+  }
+
   return (
     <div
       className={className ? `rating-stars ${className}` : 'rating-stars'}
       role={isInteractive ? 'radiogroup' : 'img'}
       aria-label={isInteractive ? 'Rating selection' : `Rating: ${rating} out of ${maxStars} stars`}
     >
-      {Array.from({ length: maxStars }, (_, i) => {
-        const starValue = i + 1
+      {starNumbers.map((starValue) => {
         const isFilled = starValue <= displayRating
 
         let starClassName = 'rating-star'

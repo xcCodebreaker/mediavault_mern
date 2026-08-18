@@ -752,6 +752,12 @@ a:hover {
   margin-top: 24px;
 }
 
+.diary-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .btn-delete-entry {
   display: inline-flex;
   align-items: center;
