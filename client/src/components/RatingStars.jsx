@@ -3,7 +3,7 @@
  *
  * Uses `.rating-stars`, `.rating-star`, `.rating-star-filled`,
  * `.rating-star-interactive` CSS classes defined in
- * style/reusable-components.css.
+ * style/main.css.
  *
  * Props:
  *  - rating: current rating value (0-5)

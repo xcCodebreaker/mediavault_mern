@@ -3,9 +3,8 @@ import { useState } from 'react'
 /**
  * MoviePoster - Reusable movie poster image with fallback.
  *
- * Uses the existing `.movie-poster` CSS class from the design system
- * (style/movies.css) and `.movie-poster-fallback` from the new
- * reusable component styles.
+ * Uses the `.movie-poster` and `.movie-poster-fallback` CSS classes
+ * from the main stylesheet (style/main.css).
  *
  * Props:
  *  - src: image source URL

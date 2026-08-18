@@ -1,13 +1,12 @@
 import MoviePoster from './MoviePoster.jsx'
-import RatingStars from './RatingStars.jsx'
 
 /**
  * MovieCard - Reusable movie card with poster, title, metadata, and rating.
  *
- * Uses the existing `.movie-card`, `.movie-poster-wrapper`, `.movie-overlay`,
+ * Uses the `.movie-card`, `.movie-poster-wrapper`, `.movie-overlay`,
  * `.movie-badge`, `.movie-rating`, `.movie-rating-star`, `.movie-info`,
  * `.movie-title`, `.movie-meta`, `.movie-year`, `.movie-genre` CSS classes
- * from the design system (style/movies.css).
+ * from the main stylesheet (style/main.css).
  *
  * Props:
  *  - title: movie title
